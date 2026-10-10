@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" role="img" aria-label="Programming Fundamentals: a terminal window with a blinking cursor and curly-brace symbol">
+  <defs>
+    <linearGradient id="bg-pf" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#65a30d"/>
+      <stop offset="1" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#bg-pf)"/>
+  <circle cx="540" cy="50" r="100" fill="#ffffff" opacity="0.08"/>
+  <circle cx="60" cy="370" r="110" fill="#ffffff" opacity="0.08"/>
+  <!-- terminal window -->
+  <rect x="90" y="70" width="380" height="255" rx="14" fill="#0f172a"/>
+  <!-- title bar -->
+  <rect x="90" y="70" width="380" height="32" rx="14" fill="#1e293b"/>
+  <rect x="90" y="88" width="380" height="14" fill="#1e293b"/>
+  <circle cx="114" cy="86" r="6" fill="#f87171"/>
+  <circle cx="134" cy="86" r="6" fill="#fbbf24"/>
+  <circle cx="154" cy="86" r="6" fill="#4ade80"/>
+  <!-- prompt line 1 -->
+  <rect x="118" y="120" width="14" height="14" rx="2" fill="#4ade80"/>
+  <rect x="140" y="122" width="20" height="10" rx="3" fill="#94a3b8"/>
+  <rect x="168" y="122" width="70" height="10" rx="3" fill="#a3e635"/>
+  <rect x="246" y="122" width="90" height="10" rx="3" fill="#f8fafc"/>
+  <!-- prompt line 2 -->
+  <rect x="118" y="148" width="14" height="14" rx="2" fill="#4ade80"/>
+  <rect x="140" y="150" width="20" height="10" rx="3" fill="#94a3b8"/>
+  <rect x="168" y="150" width="110" height="10" rx="3" fill="#38bdf8"/>
+  <rect x="286" y="150" width="50" height="10" rx="3" fill="#fbbf24"/>
+  <!-- prompt line 3 -->
+  <rect x="118" y="176" width="14" height="14" rx="2" fill="#4ade80"/>
+  <rect x="140" y="178" width="20" height="10" rx="3" fill="#94a3b8"/>
+  <rect x="168" y="178" width="60" height="10" rx="3" fill="#f472b6"/>
+  <rect x="236" y="178" width="80" height="10" rx="3" fill="#a3e635"/>
+  <rect x="324" y="178" width="50" height="10" rx="3" fill="#f8fafc"/>
+  <!-- prompt line 4 - output -->
+  <rect x="118" y="206" width="220" height="10" rx="3" fill="#4ade80" opacity="0.7"/>
+  <!-- prompt line 5 active -->
+  <rect x="118" y="232" width="14" height="14" rx="2" fill="#4ade80"/>
+  <rect x="140" y="234" width="20" height="10" rx="3" fill="#94a3b8"/>
+  <!-- blinking cursor block -->
+  <rect x="168" y="230" width="11" height="18" rx="2" fill="#f8fafc"/>
+  <!-- run button bottom right of terminal -->
+  <rect x="390" y="276" width="60" height="28" rx="8" fill="#4ade80" opacity="0.9"/>
+  <polygon points="404,284 404,296 416,290" fill="#0f172a"/>
+  <rect x="420" y="283" width="22" height="4" rx="2" fill="#0f172a" opacity="0.6"/>
+  <rect x="420" y="290" width="16" height="4" rx="2" fill="#0f172a" opacity="0.4"/>
+  <!-- curly-brace badge -->
+  <circle cx="478" cy="318" r="42" fill="#ffffff" opacity="0.95"/>
+  <!-- { symbol -->
+  <path d="M462 300 Q454 300 454 308 L454 316 Q454 322 446 322 Q454 322 454 328 L454 336 Q454 344 462 344" stroke="#65a30d" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- } symbol -->
+  <path d="M478 300 Q486 300 486 308 L486 316 Q486 322 494 322 Q486 322 486 328 L486 336 Q486 344 478 344" stroke="#059669" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

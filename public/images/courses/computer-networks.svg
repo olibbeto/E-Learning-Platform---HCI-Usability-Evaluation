@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" role="img" aria-label="Computer Networks: a router in the center connected by lines to a laptop, a server rack and a phone, with a globe badge">
+  <defs>
+    <linearGradient id="bg-cn" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d946ef"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#bg-cn)"/>
+  <circle cx="60" cy="60" r="100" fill="#ffffff" opacity="0.08"/>
+  <circle cx="550" cy="360" r="110" fill="#ffffff" opacity="0.08"/>
+  <!-- connection lines from center router -->
+  <line x1="300" y1="200" x2="128" y2="110" stroke="#e879f9" stroke-width="3" stroke-dasharray="8 5" opacity="0.7"/>
+  <line x1="300" y1="200" x2="128" y2="290" stroke="#a78bfa" stroke-width="3" stroke-dasharray="8 5" opacity="0.7"/>
+  <line x1="300" y1="200" x2="472" y2="110" stroke="#e879f9" stroke-width="3" stroke-dasharray="8 5" opacity="0.7"/>
+  <line x1="300" y1="200" x2="472" y2="290" stroke="#c084fc" stroke-width="3" stroke-dasharray="8 5" opacity="0.7"/>
+  <!-- animated pulse dots on lines -->
+  <circle cx="214" cy="155" r="5" fill="#f0abfc" opacity="0.8"/>
+  <circle cx="214" cy="245" r="5" fill="#c4b5fd" opacity="0.8"/>
+  <circle cx="386" cy="155" r="5" fill="#f0abfc" opacity="0.8"/>
+  <circle cx="386" cy="245" r="5" fill="#c4b5fd" opacity="0.8"/>
+  <!-- ROUTER (center) -->
+  <rect x="244" y="164" width="112" height="72" rx="12" fill="#ffffff" opacity="0.95"/>
+  <!-- router antenna left -->
+  <line x1="264" y1="164" x2="258" y2="136" stroke="#d946ef" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="258" cy="132" r="5" fill="#f0abfc"/>
+  <!-- router antenna right -->
+  <line x1="336" y1="164" x2="342" y2="136" stroke="#7c3aed" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="342" cy="132" r="5" fill="#c084fc"/>
+  <!-- router body detail -->
+  <rect x="258" y="180" width="84" height="10" rx="4" fill="#e9d5ff" opacity="0.6"/>
+  <!-- router LEDs -->
+  <circle cx="266" cy="208" r="4" fill="#4ade80"/>
+  <circle cx="280" cy="208" r="4" fill="#4ade80"/>
+  <circle cx="294" cy="208" r="4" fill="#fbbf24"/>
+  <circle cx="308" cy="208" r="4" fill="#4ade80"/>
+  <circle cx="322" cy="208" r="4" fill="#f87171"/>
+  <circle cx="336" cy="208" r="4" fill="#4ade80"/>
+  <!-- LAPTOP (top-left) -->
+  <rect x="80" y="68" width="96" height="64" rx="6" fill="#1e1b4b"/>
+  <!-- laptop screen -->
+  <rect x="86" y="74" width="84" height="52" rx="4" fill="#4c1d95"/>
+  <!-- screen content lines -->
+  <rect x="92" y="82" width="72" height="6" rx="2" fill="#a78bfa" opacity="0.6"/>
+  <rect x="92" y="94" width="50" height="6" rx="2" fill="#c4b5fd" opacity="0.5"/>
+  <rect x="92" y="106" width="62" height="6" rx="2" fill="#a78bfa" opacity="0.4"/>
+  <!-- laptop base/keyboard -->
+  <rect x="74" y="132" width="110" height="10" rx="3" fill="#1e1b4b"/>
+  <rect x="100" y="135" width="58" height="4" rx="2" fill="#4c1d95" opacity="0.6"/>
+  <!-- SERVER RACK (bottom-left) -->
+  <rect x="84" y="248" width="88" height="80" rx="8" fill="#1e1b4b"/>
+  <!-- rack units -->
+  <rect x="92" y="256" width="72" height="14" rx="3" fill="#4c1d95"/>
+  <rect x="92" y="274" width="72" height="14" rx="3" fill="#312e81"/>
+  <rect x="92" y="292" width="72" height="14" rx="3" fill="#4c1d95"/>
+  <rect x="92" y="310" width="72" height="10" rx="3" fill="#312e81"/>
+  <!-- rack LEDs -->
+  <circle cx="100" cy="263" r="3" fill="#4ade80"/>
+  <circle cx="100" cy="281" r="3" fill="#4ade80"/>
+  <circle cx="100" cy="299" r="3" fill="#fbbf24"/>
+  <circle cx="100" cy="315" r="3" fill="#4ade80"/>
+  <!-- rack drive slots -->
+  <rect x="110" y="259" width="46" height="8" rx="2" fill="#6d28d9" opacity="0.5"/>
+  <rect x="110" y="277" width="46" height="8" rx="2" fill="#6d28d9" opacity="0.4"/>
+  <rect x="110" y="295" width="46" height="8" rx="2" fill="#6d28d9" opacity="0.5"/>
+  <!-- PHONE (top-right) -->
+  <rect x="428" y="62" width="88" height="142" rx="16" fill="#ffffff" opacity="0.92"/>
+  <rect x="428" y="62" width="88" height="142" rx="16" fill="none" stroke="#e879f9" stroke-width="2.5"/>
+  <!-- phone camera dot -->
+  <circle cx="472" cy="72" r="4" fill="#e879f9"/>
+  <!-- phone screen content -->
+  <rect x="438" y="84" width="68" height="36" rx="5" fill="#fae8ff"/>
+  <rect x="438" y="128" width="30" height="28" rx="4" fill="#f3e8ff"/>
+  <rect x="474" y="128" width="32" height="12" rx="3" fill="#fae8ff"/>
+  <rect x="474" y="144" width="32" height="12" rx="3" fill="#f3e8ff"/>
+  <rect x="438" y="164" width="68" height="8" rx="3" fill="#e9d5ff"/>
+  <rect x="438" y="176" width="52" height="8" rx="3" fill="#f3e8ff"/>
+  <!-- phone home bar -->
+  <rect x="454" y="192" width="36" height="5" rx="3" fill="#e879f9" opacity="0.5"/>
+  <!-- DESKTOP PC (bottom-right) bottom-right device -->
+  <rect x="424" y="248" width="96" height="74" rx="8" fill="#1e1b4b"/>
+  <!-- monitor screen area -->
+  <rect x="432" y="256" width="80" height="50" rx="4" fill="#4c1d95"/>
+  <rect x="438" y="262" width="68" height="8" rx="2" fill="#a78bfa" opacity="0.5"/>
+  <rect x="438" y="276" width="50" height="8" rx="2" fill="#c4b5fd" opacity="0.4"/>
+  <rect x="438" y="290" width="60" height="8" rx="2" fill="#a78bfa" opacity="0.4"/>
+  <!-- monitor stand -->
+  <rect x="466" y="322" width="12" height="10" rx="2" fill="#312e81"/>
+  <rect x="456" y="332" width="32" height="6" rx="2" fill="#1e1b4b"/>
+  <!-- globe badge -->
+  <circle cx="472" cy="335" r="40" fill="#ffffff" opacity="0.95"/>
+  <!-- globe outer ring -->
+  <circle cx="472" cy="335" r="24" fill="none" stroke="#d946ef" stroke-width="4"/>
+  <!-- globe lat lines -->
+  <ellipse cx="472" cy="335" rx="24" ry="9" fill="none" stroke="#d946ef" stroke-width="2" opacity="0.5"/>
+  <!-- globe long lines -->
+  <ellipse cx="472" cy="335" rx="11" ry="24" fill="none" stroke="#d946ef" stroke-width="2" opacity="0.5"/>
+  <line x1="448" y1="335" x2="496" y2="335" stroke="#d946ef" stroke-width="2" opacity="0.5"/>
+  <line x1="472" y1="311" x2="472" y2="359" stroke="#d946ef" stroke-width="2" opacity="0.5"/>
+</svg>
