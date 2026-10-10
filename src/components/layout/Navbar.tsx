@@ -13,8 +13,7 @@ import {
   Settings,
   LogOut,
 } from "lucide-react";
-// Assuming useApp is exported from a context file
-// import { useApp } from "@/context/AppContext";
+import { useApp } from "@/context/AppContext";
 
 export function Navbar() {
   const pathname = usePathname();
@@ -24,9 +23,7 @@ export function Navbar() {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
 
-  // Mocking useApp since it's not defined in the prompt's provided files
-  // const { unreadNotificationsCount } = useApp();
-  const unreadNotificationsCount = 3;
+  const { unreadNotificationsCount } = useApp();
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -57,19 +54,23 @@ export function Navbar() {
             </Link>
             
             <div className="hidden md:ml-8 md:flex md:space-x-4">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${
-                    pathname === link.href
-                      ? "border-indigo-500 text-indigo-600"
-                      : "border-transparent text-slate-500 hover:border-slate-300 hover:text-slate-700"
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    aria-current={isActive ? 'page' : undefined}
+                    className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 rounded-sm ${
+                      isActive
+                        ? "border-indigo-500 text-indigo-600"
+                        : "border-transparent text-slate-600 hover:border-slate-300 hover:text-slate-800"
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
             </div>
           </div>
 
@@ -182,20 +183,24 @@ export function Navbar() {
       {isMobileMenuOpen && (
         <div className="md:hidden border-b border-slate-200 bg-white">
           <div className="pt-2 pb-3 space-y-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className={`block pl-3 pr-4 py-2 border-l-4 text-base font-medium ${
-                  pathname === link.href
-                    ? "border-indigo-500 text-indigo-700 bg-indigo-50"
-                    : "border-transparent text-slate-600 hover:text-slate-800 hover:bg-slate-50 hover:border-slate-300"
-                }`}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {link.name}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  aria-current={isActive ? 'page' : undefined}
+                  className={`block pl-3 pr-4 py-3 border-l-4 text-base font-medium min-h-[44px] flex items-center ${
+                    isActive
+                      ? "border-indigo-500 text-indigo-700 bg-indigo-50"
+                      : "border-transparent text-slate-600 hover:text-slate-800 hover:bg-slate-50 hover:border-slate-300"
+                  }`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
           </div>
           <div className="pt-4 pb-3 border-t border-slate-200">
             <div className="flex items-center px-4">
