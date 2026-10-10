@@ -53,6 +53,7 @@ export interface Course {
   progress?: number;
   lastLesson?: string;
   lastLessonId?: string;
+  lastAccessed?: string;
   grade?: number;
   color: string;
 }

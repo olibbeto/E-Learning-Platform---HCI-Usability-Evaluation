@@ -1,12 +1,13 @@
 "use client";
 
 import React, { createContext, useContext, useState, useCallback, useMemo } from 'react';
-import { User, Course, Notification, Assignment, QuizResult } from '@/types';
+import { User, Course, Notification, Assignment, QuizResult, GradeEntry } from '@/types';
 import { 
   currentUser as mockUser, 
   courses as mockCourses, 
   notifications as mockNotifications,
-  assignments as mockAssignments
+  assignments as mockAssignments,
+  grades as mockGrades,
 } from '@/data/mock-data';
 import { getTotalLessons, getCompletedLessons } from '@/lib/utils';
 
@@ -16,6 +17,7 @@ interface AppContextType {
   allCourses: Course[];
   notifications: Notification[];
   assignments: Assignment[];
+  grades: GradeEntry[];
   quizResults: Record<string, QuizResult>;
   unreadNotificationsCount: number;
   enrollInCourse: (courseId: string) => void;
@@ -34,6 +36,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const [allCourses, setAllCourses] = useState<Course[]>(mockCourses);
   const [notifications, setNotifications] = useState<Notification[]>(mockNotifications);
   const [assignments, setAssignments] = useState<Assignment[]>(mockAssignments);
+  const [grades] = useState<GradeEntry[]>(mockGrades);
   const [quizResults, setQuizResults] = useState<Record<string, QuizResult>>({});
 
   const enrolledCourses = useMemo(() => {
@@ -113,6 +116,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     allCourses,
     notifications,
     assignments,
+    grades,
     quizResults,
     unreadNotificationsCount,
     enrollInCourse,
