@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" role="img" aria-label="Web Development: a code editor and browser window with HTML tags">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0ea5e9"/>
+      <stop offset="1" stop-color="#2563eb"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#bg)"/>
+  <circle cx="540" cy="340" r="100" fill="#ffffff" opacity="0.08"/>
+  <circle cx="50" cy="50" r="80" fill="#ffffff" opacity="0.08"/>
+  <!-- code editor -->
+  <rect x="70" y="70" width="270" height="250" rx="14" fill="#0f172a"/>
+  <circle cx="92" cy="92" r="5" fill="#f87171"/>
+  <circle cx="110" cy="92" r="5" fill="#fbbf24"/>
+  <circle cx="128" cy="92" r="5" fill="#34d399"/>
+  <rect x="92" y="118" width="60" height="9" rx="4" fill="#38bdf8"/>
+  <rect x="160" y="118" width="80" height="9" rx="4" fill="#f472b6"/>
+  <rect x="108" y="140" width="90" height="9" rx="4" fill="#a3e635"/>
+  <rect x="206" y="140" width="60" height="9" rx="4" fill="#fbbf24"/>
+  <rect x="108" y="162" width="50" height="9" rx="4" fill="#f472b6"/>
+  <rect x="166" y="162" width="110" height="9" rx="4" fill="#94a3b8"/>
+  <rect x="108" y="184" width="130" height="9" rx="4" fill="#38bdf8"/>
+  <rect x="92" y="206" width="70" height="9" rx="4" fill="#38bdf8"/>
+  <rect x="92" y="236" width="60" height="9" rx="4" fill="#f472b6"/>
+  <rect x="160" y="236" width="100" height="9" rx="4" fill="#a3e635"/>
+  <rect x="108" y="258" width="120" height="9" rx="4" fill="#94a3b8"/>
+  <rect x="92" y="280" width="50" height="9" rx="4" fill="#38bdf8"/>
+  <!-- browser preview -->
+  <rect x="300" y="120" width="230" height="190" rx="12" fill="#ffffff"/>
+  <rect x="300" y="120" width="230" height="28" rx="12" fill="#e0f2fe"/>
+  <rect x="300" y="136" width="230" height="12" fill="#e0f2fe"/>
+  <rect x="340" y="127" width="150" height="14" rx="7" fill="#ffffff"/>
+  <rect x="318" y="166" width="194" height="46" rx="8" fill="#7dd3fc"/>
+  <rect x="318" y="224" width="90" height="62" rx="8" fill="#bae6fd"/>
+  <rect x="420" y="224" width="92" height="28" rx="8" fill="#e0f2fe"/>
+  <rect x="420" y="258" width="92" height="28" rx="8" fill="#e0f2fe"/>
+  <!-- </> badge -->
+  <circle cx="455" cy="95" r="44" fill="#ffffff"/>
+  <path d="M440 80 L420 95 L440 110" stroke="#2563eb" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M470 80 L490 95 L470 110" stroke="#2563eb" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M461 74 L449 116" stroke="#0ea5e9" stroke-width="7" fill="none" stroke-linecap="round"/>
+</svg>
