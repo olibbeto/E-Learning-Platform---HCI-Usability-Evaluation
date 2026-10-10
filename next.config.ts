@@ -10,6 +10,11 @@ const nextConfig: NextConfig = {
     unoptimized: true,        // GitHub Pages can't run Next.js image optimization
   },
   trailingSlash: true,        // Ensures /dashboard → /dashboard/index.html
+  // Bake the base path into every client bundle at build time.
+  // NEXT_PUBLIC_* vars are inlined by the compiler — no runtime look-up needed.
+  env: {
+    NEXT_PUBLIC_BASE_PATH: `/${repo}`,
+  },
 };
 
 export default nextConfig;

@@ -2,11 +2,11 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { Course } from '@/types';
 import { Star, Clock, Users, BookOpen } from 'lucide-react';
 import { ProgressBar } from './ProgressBar';
 import { cn, getTotalLessons, getCompletedLessons } from '@/lib/utils';
+import { withBasePath } from '@/lib/basePath';
 
 interface CourseCardProps {
   course: Course;
@@ -14,7 +14,7 @@ interface CourseCardProps {
   onEnroll?: (courseId: string) => void;
 }
 
-/** Alt text per course id — falls back to the course title */
+/** Descriptive alt text per course id — falls back to the course title. */
 const courseAltText: Record<string, string> = {
   c1: 'Illustration of a wireframe interface with a cursor and user icon',
   c2: 'Illustration of a code editor and browser window with HTML tags',
@@ -27,48 +27,51 @@ const courseAltText: Record<string, string> = {
 };
 
 /**
- * Thin wrapper that renders a course illustration using next/image (which
- * automatically prepends basePath/assetPrefix so images work on GitHub Pages),
- * and falls back to the gradient + book icon on error or when src is empty.
+ * CourseIllustration — renders the course SVG with:
+ *   • withBasePath() so the URL is correct on GitHub Pages
+ *   • loading="lazy" for performance
+ *   • onerror → falls back to gradient + book icon
+ *   • meaningful alt text per course
  */
 function CourseIllustration({
   course,
-  className = '',
+  imgClassName = '',
 }: {
   course: Course;
-  className?: string;
+  imgClassName?: string;
 }) {
   const [imgError, setImgError] = useState(false);
-  const hasSrc = !!course.image && !imgError;
+  const src = withBasePath(course.image);
   const alt = courseAltText[course.id] ?? course.title;
+  const showImage = !!course.image && !imgError;
 
-  if (hasSrc) {
+  if (showImage) {
     return (
-      <Image
-        src={course.image}
+      <img
+        src={src}
         alt={alt}
-        fill
-        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-        className={cn('object-cover transition-transform duration-500 group-hover:scale-105', className)}
         loading="lazy"
         onError={() => setImgError(true)}
-        unoptimized
+        className={cn('absolute inset-0 w-full h-full object-cover', imgClassName)}
       />
     );
   }
 
+  // Fallback: gradient background + book icon
   return (
     <div
       className={cn(
         'absolute inset-0 flex items-center justify-center',
         course.color || 'bg-gradient-to-br from-indigo-500 to-purple-600',
-        className,
       )}
+      aria-hidden="true"
     >
-      <BookOpen className="w-16 h-16 text-white/30" aria-hidden="true" />
+      <BookOpen className="w-16 h-16 text-white/30" />
     </div>
   );
 }
+
+// ─── Main component ──────────────────────────────────────────────────────────
 
 export function CourseCard({ course, variant = 'catalog', onEnroll }: CourseCardProps) {
   const isEnrolled = course.enrolled;
@@ -77,23 +80,23 @@ export function CourseCard({ course, variant = 'catalog', onEnroll }: CourseCard
       ? course.instructor
       : course.instructor?.name ?? 'Instructor';
 
-  // ── catalog variant ───────────────────────────────────────────────────────
+  // ── catalog ───────────────────────────────────────────────────────────────
   const renderCatalog = () => (
     <div className="group flex flex-col bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all h-full">
+      {/* Image area — 3:2 aspect ratio */}
       <Link href={`/courses/${course.id}`} className="block relative aspect-[3/2] overflow-hidden">
-        <CourseIllustration course={course} />
-        {/* Category pill — top-left */}
-        <div className="absolute top-2 left-2 z-10">
-          <span className="px-2 py-1 bg-white/90 backdrop-blur text-xs font-medium rounded-md text-slate-700">
-            {course.category}
-          </span>
-        </div>
+        <CourseIllustration
+          course={course}
+          imgClassName="transition-transform duration-500 group-hover:scale-105"
+        />
+        {/* Category pill — top-left, over the image */}
+        <span className="absolute top-2 left-2 z-10 px-2 py-1 bg-white/90 backdrop-blur text-xs font-medium rounded-md text-slate-700">
+          {course.category}
+        </span>
         {/* Difficulty pill — top-right */}
-        <div className="absolute top-2 right-2 z-10">
-          <span className="px-2 py-1 bg-black/60 text-white text-xs font-medium rounded-md">
-            {course.difficulty}
-          </span>
-        </div>
+        <span className="absolute top-2 right-2 z-10 px-2 py-1 bg-black/60 text-white text-xs font-medium rounded-md">
+          {course.difficulty}
+        </span>
       </Link>
 
       <div className="p-4 flex flex-col flex-1">
@@ -144,7 +147,7 @@ export function CourseCard({ course, variant = 'catalog', onEnroll }: CourseCard
     </div>
   );
 
-  // ── enrolled variant ──────────────────────────────────────────────────────
+  // ── enrolled ──────────────────────────────────────────────────────────────
   const renderEnrolled = () => {
     const total = getTotalLessons(course);
     const completed = getCompletedLessons(course);
@@ -168,7 +171,9 @@ export function CourseCard({ course, variant = 'catalog', onEnroll }: CourseCard
 
             <div className="flex items-center gap-2 mb-1">
               <ProgressBar value={course.progress || 0} size="sm" />
-              <span className="text-xs font-medium text-slate-600 shrink-0">{course.progress || 0}%</span>
+              <span className="text-xs font-medium text-slate-600 shrink-0">
+                {course.progress || 0}%
+              </span>
             </div>
             <p className="text-xs text-slate-600 mb-4">
               {completed} of {total} lessons complete
@@ -186,10 +191,13 @@ export function CourseCard({ course, variant = 'catalog', onEnroll }: CourseCard
     );
   };
 
-  // ── recommended variant ───────────────────────────────────────────────────
+  // ── recommended ───────────────────────────────────────────────────────────
   const renderRecommended = () => (
     <div className="flex gap-4 p-3 bg-white rounded-xl border border-slate-200 hover:border-indigo-200 hover:shadow-sm transition-all group">
-      <Link href={`/courses/${course.id}`} className="shrink-0 w-20 h-20 rounded-lg overflow-hidden relative">
+      <Link
+        href={`/courses/${course.id}`}
+        className="shrink-0 w-20 h-20 rounded-lg overflow-hidden relative"
+      >
         <CourseIllustration course={course} />
       </Link>
       <div className="flex flex-col flex-1 py-1">
