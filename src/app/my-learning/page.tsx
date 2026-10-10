@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   BookOpen, Award, Clock, ChevronRight,
   CalendarDays, AlertCircle, CheckCircle2, SortAsc,
@@ -47,13 +48,15 @@ function CourseImageWithFallback({
       }`}
     >
       {showImage ? (
-        <img
+        <Image
           src={src}
           alt={alt}
+          fill
+          sizes="(max-width: 640px) 100vw, 50vw"
+          className="object-cover"
           loading="lazy"
           onError={() => setImgError(true)}
-          className="w-full h-full object-cover"
-          style={{ aspectRatio: '3/2' }}
+          unoptimized
         />
       ) : (
         <BookOpen className="w-14 h-14 text-white/40" aria-hidden="true" />
